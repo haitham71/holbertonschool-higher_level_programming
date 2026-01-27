@@ -20,12 +20,17 @@ class Square:
     def size(self):
         """
         Retrieve the size
+        return: size amount
         """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Set the size with validation"""
+        """
+        Set the size with validation
+        :param value: new size value
+        :return: __size
+		"""
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
