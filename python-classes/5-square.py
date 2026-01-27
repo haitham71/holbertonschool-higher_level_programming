@@ -40,7 +40,7 @@ class Square:
         """
         Return the area of the square
         """
-        return self.__size * self.__size
+        return self.__size ** 2
 
     def my_print(self):
         """Print the square using #
