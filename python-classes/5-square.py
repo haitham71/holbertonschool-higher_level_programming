@@ -9,6 +9,11 @@ class Square:
     Represents a square with size validation, area calculation, and print method.
     """
     def __init__(self, size=0):
+        """
+        Docstring for __init__
+        :param self: Description
+        :param size: Description
+        """
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         if size < 0:
@@ -40,13 +45,13 @@ class Square:
         """
         Return the area of the square
         """
-        return self.__size ** 2
+        return self.__size * self.__size
 
     def my_print(self):
         """Print the square using #
         """
         if self.__size == 0:
             print()
-        if self.__size >= 1:
+        else:
             for _ in range(self.__size):
                 print("#" * self.__size)
