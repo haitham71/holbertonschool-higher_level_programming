@@ -5,6 +5,9 @@ Defines a Square class with size, area, and print functionality.
 
 
 class Square:
+    """
+    Represents a square with size validation, area calculation, and print method.
+    """
     def __init__(self, size=0):
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
@@ -15,7 +18,9 @@ class Square:
 
     @property
     def size(self):
-        """Retrieve the size"""
+        """
+        Retrieve the size
+        """
         return self.__size
 
     @size.setter
