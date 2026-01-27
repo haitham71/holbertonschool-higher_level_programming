@@ -49,7 +49,6 @@ class Square:
 
     def my_print(self):
         """
-
         :return:print of rectangle
         """
         if self.__size == 0:
