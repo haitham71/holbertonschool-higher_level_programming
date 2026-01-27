@@ -1,11 +1,14 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """
-first class build
+firs attribute first function __inti__
 """
+
+
 class Square:
     """
-    def for size
+    the parameter self, private attribute
     """
+
     _Square__size = 0
 
     def __init__(self, size):
