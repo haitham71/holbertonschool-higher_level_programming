@@ -29,7 +29,6 @@ class Square:
         """
         Set the size with validation
         :param value: new size value
-        :return: __size
         """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
@@ -44,7 +43,9 @@ class Square:
         return self.__size * self.__size
 
     def my_print(self):
-        """Print the square using #"""
+        """
+        Print the square using #
+        """
         if self.__size == 0:
             print()
         else:
