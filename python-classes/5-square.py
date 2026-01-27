@@ -1,43 +1,59 @@
 #!/usr/bin/python3
-"""Defines a Square class with size validation."""
+"""
+print square upon the size
+"""
 
 
 class Square:
     """
-       Represents a square with a private size attribute.
+    print rectangle use property & setter
     """
 
     def __init__(self, size=0):
+        """
+        :param size: of rectangle
+        """
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         if size < 0:
             raise ValueError("size must be >= 0")
-        self.__size = size
+        else:
+            self.__size = size
 
     def area(self):
-        """Calculates the area of the square."""
-        return self.__size ** 2
+        """
+
+        :return: area of the rectangle
+        """
+        return self.__size**2
 
     @property
     def size(self):
-        """Getter for the size attribute."""
+        """
+        :return: the setted size
+        """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Setter for the size attribute with validation."""
+        """
+        :param value: SIZE SET
+        :return: NONE
+        """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
-        self.__size = value
+        else:
+            self.__size = value
 
     def my_print(self):
         """
-        Prints the square using the '#' character.
+
+        :return:print of rectangle
         """
         if self.__size == 0:
             print()
-        if self.__size >= 1:
+        else:
             for i in range(self.__size):
                 print("#" * self.__size)
