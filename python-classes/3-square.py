@@ -28,3 +28,4 @@ class Square:
         :return: result
         """
         return self.__size * self.__size
+    
