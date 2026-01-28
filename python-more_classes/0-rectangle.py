@@ -6,4 +6,5 @@ class Rectangle:
     """
     Docstring for Rectangle
     """
+
     pass
