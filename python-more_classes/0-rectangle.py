@@ -4,6 +4,6 @@ new module in square make a function
 """
 class Rectangle:
     """
-	Docstring for Rectangle
-	"""
+    Docstring for Rectangle
+    """
     pass
