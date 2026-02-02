@@ -1,0 +1,1 @@
+file = open(r"c:/Users/h7bla/OneDrive/سطح المكتب/holbertonschool-higher_level_programming/learning-file/README.md")
