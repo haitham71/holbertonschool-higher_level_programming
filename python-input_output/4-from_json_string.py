@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ Module that defines a function that reads a text file"""
+import json
 
 
-def write_file(filename="", text=""):
+def from_json_string(my_str):
     """ Writes a string to a text file and returns the number of characters"""
-    with open(filename, "w") as f:
-        return f.write(text)
+    return json.loads(my_str)
