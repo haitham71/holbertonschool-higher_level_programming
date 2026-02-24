@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-# task_02_requests.py
-
 import requests
 import csv
 
