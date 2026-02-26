@@ -1,4 +1,4 @@
--- here is script that updates the score of Bob
+-- here is script that updates the score of Bob to 10
 UPDATE second_table
-SET score = 1O
+SET score = 10
 WHERE name = "Bob";
