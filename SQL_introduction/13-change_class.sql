@@ -1,3 +1,3 @@
---here is script that deletes all rows with a score lower than 5
+-- here is script that deletes all rows with a score lower than 5
 DELETE FROM second_table
 WHERE score <= 5;
