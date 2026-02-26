@@ -1,2 +1,3 @@
 -- here is script that prints the average score of all students
-SELECT AVG(score) FROM second_table;
+SELECT AVG(score) AS average
+FROM second_table;
