@@ -1,4 +1,5 @@
--- SQL query to list the top score in second_table
+-- here will print the best score 
 SELECT score, name
 FROM second_table
+WHERE score >= 10
 ORDER BY score DESC;
