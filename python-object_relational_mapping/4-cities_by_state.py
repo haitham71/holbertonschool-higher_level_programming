@@ -1,26 +1,39 @@
 #!/usr/bin/python3
-"""lists all cities from the database hbtn_0e_4_usa"""
+"""
+4-cities_by_state.py
+
+Lists all cities from the database with their state name.
+Results are sorted by cities.id in ascending order.
+"""
+import MySQLdb
+import sys
+
 
 if __name__ == "__main__":
-
-    import MySQLdb
-    import sys
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
 
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
-        user=sys.argv[1],
-        passwd=sys.argv[2],
-        db=sys.argv[3],
+        user=username,
+        passwd=password,
+        db=database
     )
 
-    cur = db.cursor()
-    cur.execute(
-        "SELECT cities.id, cities.name, states.name\
-                FROM cities LEFT JOIN states\
-                ON states.id = cities.state_id\
-                ORDER BY cities.id ASC"
+    cursor = db.cursor()
+    cursor.execute(
+        """
+        SELECT cities.id, cities.name, states.name
+        FROM cities
+        JOIN states ON cities.state_id = states.id
+        ORDER BY cities.id ASC
+        """
     )
-    rows = cur.fetchall()
-    for row in rows:
+
+    for row in cursor.fetchall():
         print(row)
+
+    cursor.close()
+    db.close()

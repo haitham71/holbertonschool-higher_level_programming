@@ -1,28 +1,40 @@
 #!/usr/bin/python3
-"""takes in an argument and displays all values
-in the states table of hbtn_0e_0_usa
-where name matches the argument"""
+"""
+2-my_filter_states.py
+
+Displays all values in the states table where name matches
+the argument passed.
+"""
+import MySQLdb
+import sys
+
 
 if __name__ == "__main__":
-
-    import MySQLdb
-    import sys
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+    state_name = sys.argv[4]
 
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
-        user=sys.argv[1],
-        passwd=sys.argv[2],
-        db=sys.argv[3],
+        user=username,
+        passwd=password,
+        db=database
     )
 
-    cur = db.cursor()
-    cur.execute(
-        "SELECT * FROM states WHERE name LIKE BINARY '{}'\
-                ORDER BY states.id ASC".format(
-            sys.argv[4]
-        )
-    )
-    rows = cur.fetchall()
-    for row in rows:
+    cursor = db.cursor()
+
+    query = (
+        "SELECT id, name FROM states "
+        "WHERE BINARY name = '{}' "
+        "ORDER BY id ASC"
+    ).format(state_name)
+
+    cursor.execute(query)
+
+    for row in cursor.fetchall():
         print(row)
+
+    cursor.close()
+    db.close()

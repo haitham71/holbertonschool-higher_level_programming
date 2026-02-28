@@ -1,12 +1,16 @@
 #!/usr/bin/python3
-"""Contains the class definition of a City and an instance Base."""
+"""
+model_city.py
 
+Contains the class definition of City.
+"""
 from sqlalchemy import Column, Integer, String, ForeignKey
 from model_state import Base
 
 
 class City(Base):
-    """City class that links to the MySQL table cities."""
+    """City class linked to cities table"""
+
     __tablename__ = "cities"
 
     id = Column(Integer, primary_key=True, nullable=False)

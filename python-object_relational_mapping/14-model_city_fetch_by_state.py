@@ -1,6 +1,9 @@
 #!/usr/bin/python3
-"""Prints all City objects from the database hbtn_0e_14_usa."""
+"""
+14-model_city_fetch_by_state.py
 
+Prints all City objects with their State name.
+"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -9,24 +12,28 @@ from model_city import City
 
 
 if __name__ == "__main__":
-    user = sys.argv[1]
-    passwd = sys.argv[2]
-    db_name = sys.argv[3]
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
 
     engine = create_engine(
-        "mysql+mysqldb://{}:{}@localhost/{}".format(user, passwd, db_name),
+        "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
+            username, password, database
+        ),
         pool_pre_ping=True
     )
+
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Join cities with states, order by City.id
-    results = (session.query(State, City)
-               .filter(State.id == City.state_id)
-               .order_by(City.id.asc())
-               .all())
+    results = (
+        session.query(City, State)
+        .join(State)
+        .order_by(City.id)
+        .all()
+    )
 
-    for state, city in results:
+    for city, state in results:
         print("{}: ({}) {}".format(state.name, city.id, city.name))
 
     session.close()
